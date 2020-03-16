@@ -86,6 +86,7 @@ int numero;
 boletos:
 printf("Inserte asiento a reservar: ");
 scanf("%s", ayuda);
+clearscreen();
 if(strcmp(ayuda, "menu") == 0){
 return;    
 }
@@ -95,14 +96,13 @@ for(; a<6; a++){
 for(; v<6; v++){
 if(strcmp(s[a][v], ayuda) == 0){
 if(pap[a][v] == 1){
-printf("Asiento '%s' ya esta reservado\n\n", s[a][v]);
+	printf("Asiento '%s' ya esta reservado\n\n", s[a][v]);
 a = 0;
 v = 0;
 for(; a<6; a++){
     v = 0;
 for(; v<6; v++){
-if(pap[a][v] == 0) {
-clearscreen();    
+if(pap[a][v] == 0) {   
 printf("Sugerido: '%s'\n", s[a][v]);
 goto boletos;
 }   
