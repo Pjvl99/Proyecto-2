@@ -4,7 +4,6 @@
 int matrices(int g[6][6]);
 int resumen(int dsble[1], int rvado[1]);
 int aeroplane(char *s[6][6], int pap[6][6], int d[1], int o[1]);
-int conteo(int gg, int hh);
 double calc(double hm, double hf);
 int main(void){
       int matrix[6][6] = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, 
@@ -42,7 +41,6 @@ goto avion;
 else if(t == 2){
     clearscreen();
 matrices(matrix);
-clearscreen();
 goto avion;
 }
 else if (t == 3){
@@ -97,15 +95,27 @@ for(; a<6; a++){
 for(; v<6; v++){
 if(strcmp(s[a][v], ayuda) == 0){
 if(pap[a][v] == 1){
-printf("Asiento '%s' ya esta reservado\n", s[a][v]);
+printf("Asiento '%s' ya esta reservado\n\n", s[a][v]);
 a = 0;
 v = 0;
+for(; a<6; a++){
+    v = 0;
+for(; v<6; v++){
+if(pap[a][v] == 0) {
+clearscreen();    
+printf("Sugerido: '%s'\n", s[a][v]);
 goto boletos;
 }   
+}
+}
+printf("Todo lleno");
+return;
+}
 else{ 
 pap[a][v] = 1;
 d[0] -=1;
 o[0] +=1;
+clearscreen();
 printf("Asiento: '%s' reservado\n", s[a][v]);
 printf("Presione '2' para continuar: ");
 scanf("%d", &numero);
