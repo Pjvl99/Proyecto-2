@@ -20,7 +20,7 @@ int c[1];
 i[0] = 36;
 c[0] = 0;
 inicio:
-printf("Inserte el numero de vuelo: ");
+printf("Inserte el numero de vuelo (5 caracteres): ");
 scanf("%s", vuelo);
 if(strlen(vuelo) == 5){
 avion:  
@@ -62,6 +62,7 @@ int matrices(int g[6][6]){
 int w;
 int y = 0;
 int x = 0;
+ac:
 printf("   |1||2||3||4||5||6|");
 for(; x<6; x++){
 y = 0;
@@ -76,6 +77,12 @@ printf("Presione '2' para volver al menu principal: ");
 scanf("%d", &w);
 if(w == 2){
 return;    
+}
+else{
+	y = 0;
+	x = 0;
+    clearscreen();
+    goto ac;
 }
 }
 int aeroplane(char *s[6][6], int pap[6][6], int d[1], int o[1]){
@@ -117,12 +124,17 @@ pap[a][v] = 1;
 d[0] -=1;
 o[0] +=1;
 clearscreen();
+ap:
 printf("Asiento: '%s' reservado\n", s[a][v]);
-printf("Presione '2' para continuar: ");
+printf("Presione '2' para continuar : ");
 scanf("%d", &numero);
 if(numero == 2){
 printf("\n\n");
 return o, d;
+}
+else{
+clearscreen();
+goto ap;
 }
 }     
 }
@@ -139,6 +151,7 @@ int resumen(int dsble[1], int rvado[1]){
 int nb;
 int total;
 total = dsble[0]+rvado[0];
+ad:
 printf("### RESUMEN\n");
 printf("Reservados: %d/%d %lf%\n", rvado[0], total, calc(rvado[0], dsble[0]));
 printf("Libres: %d/%d %lf%\n", dsble[0], total, calc(dsble[0], rvado[0]));
@@ -146,6 +159,10 @@ printf("Presione '2' para continuar: ");
 scanf("%d", &nb);
 if(nb == 2){
 return;    
+}
+else{
+    clearscreen();
+    goto ad;
 }
 }
 
