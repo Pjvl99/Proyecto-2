@@ -52,10 +52,14 @@ else if (t == 4){
     
 return 0;    
 }
+
+else{
+goto avion;   
+}
 }
 else{
-clearscreen();
-goto inicio;    
+	clearscreen();
+	goto inicio;
 }
 }
 int matrices(int g[6][6]){
