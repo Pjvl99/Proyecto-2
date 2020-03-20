@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-int matrices(int g[6][6]);
-int resumen(int dsble[1], int rvado[1]);
-int aeroplane(char *s[6][6], int pap[6][6], int d[1], int o[1]);
+void matrices(int g[6][6]);
+void resumen(int dsble[1], int rvado[1]);
+void aeroplane(char *s[6][6], int pap[6][6], int d[1], int o[1]);
+void clearscreen(void);
 double calc(double hm, double hf);
 int main(void){
       int matrix[6][6] = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, 
@@ -62,7 +63,7 @@ else{
 	goto inicio;
 }
 }
-int matrices(int g[6][6]){
+void matrices(int g[6][6]){
 int w;
 int y = 0;
 int x = 0;
@@ -89,7 +90,7 @@ else{
     goto ac;
 }
 }
-int aeroplane(char *s[6][6], int pap[6][6], int d[1], int o[1]){
+void aeroplane(char *s[6][6], int pap[6][6], int d[1], int o[1]){
 char ayuda[100];
 int a = 0;
 int v = 0;
@@ -134,7 +135,7 @@ printf("Presione '2' para continuar : ");
 scanf("%d", &numero);
 if(numero == 2){
 printf("\n\n");
-return o, d;
+return;
 }
 else{
 clearscreen();
@@ -151,7 +152,7 @@ a = 0;
 goto boletos;
 }
 }
-int resumen(int dsble[1], int rvado[1]){
+void resumen(int dsble[1], int rvado[1]){
 int nb;
 int total;
 total = dsble[0]+rvado[0];
@@ -178,7 +179,7 @@ prcntj = hm/todo;
 prcntj = prcntj*100;
 return prcntj;
 }
-void clearscreen()
+void clearscreen(void)
 {
     system("@cls||clear");
 }
