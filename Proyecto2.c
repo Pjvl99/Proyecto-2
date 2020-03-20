@@ -24,6 +24,7 @@ inicio:
 printf("Inserte el numero de vuelo (5 caracteres): ");
 scanf("%s", vuelo);
 if(strlen(vuelo) == 5){
+    matriz[0][0] = "A1";
 avion:  
 clearscreen();
 printf("Bienvenido al TRv1                  vuelo: %s\n", vuelo);
